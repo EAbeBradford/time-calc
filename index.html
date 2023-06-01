@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Time Calculator</title>
+  </head>
+  <body>
+    <label for="startHour">Start h:</label>
+    <input type="text" id="startHour" name="startHour" />
+    <label for="startMin">m:</label>
+    <input type="text" id="startMin" name="startMin" /><br /><br />
+
+    <label for="endHour">End h:</label>
+    <input type="text" id="endHour" name="endHour" />
+    <label for="endMin">m:</label>
+    <input type="text" id="endMin" name="endMin" /><br /><br />
+
+    <label for="speed">Speed: </label>
+    <input type="text" id="speed" name="speed" /><br /><br />
+
+    <button type="submit" onClick="sConsole()">Submit</button>
+
+    <h1 id="result"></h1>
+    <script>
+      function sConsole() {
+        var speed = document.getElementById("speed");
+        var eh = Number(document.getElementById("endHour").value);
+
+        console.log(typeof eh );
+
+        var em = Number(document.getElementById("endMin").value);
+        var sh = Number(document.getElementById("startHour").value);
+        var sm = Number(document.getElementById("startMin").value);
+
+        var shToMin = sh * 60;
+        var totalStartMin = shToMin + sm;
+
+        console.log("start min",totalStartMin);
+        var ehToMin = eh * 60;
+        var totalEndMin = ehToMin + em;
+
+        console.log("end min",totalEndMin);
+
+
+        var totalMin = totalEndMin-totalStartMin;
+        console.log(totalMin);
+
+
+
+        var timeRead = totalMin/ Number(speed.value);
+        console.log("total time read", timeRead);
+
+        var rounded = Math.round(timeRead); 
+
+        document.getElementById("result").innerHTML =  rounded;
+        //!!Option 1a
+        //console.log(data.submit());
+      }
+    </script>
+  </body>
+</html>
